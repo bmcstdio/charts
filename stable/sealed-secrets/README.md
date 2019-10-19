@@ -8,7 +8,13 @@ This chart contains the resources to use [sealed-secrets](https://github.com/bit
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release`:
+To be able to use `kubeseal` without specifying `--controller-name` and `--controller-namespace`, the chart must be installed into the `kube-system` namespace and with `sealed-secrets-controller` as the release name:
+
+```bash
+$ helm install --namespace kube-system --name sealed-secrets-controller stable/sealed-secrets
+```
+
+Alternatively, to install the chart using `my-release` as the release name, run the following command instead:
 
 ```bash
 $ helm install --namespace kube-system --name my-release stable/sealed-secrets
